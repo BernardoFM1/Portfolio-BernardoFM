@@ -1,23 +1,8 @@
-# Portfolio — Bernardo Fernando
-
-Portfólio pessoal de desenvolvedor back-end (C# e ASP.NET Core), construído em Angular estático (Standalone Components e Signals), vanilla CSS com Design Tokens e suporte a dois idiomas (Português e Inglês).
-
-## 🚀 Tecnologias
-
-- **Front-end:** Angular (Standalone Components, Signals)
-- **Estilização:** CSS puro com Design System baseado em tokens (`--bg`, `--surface`, `--accent`, etc.)
-- **Tipografia:** IBM Plex Sans & IBM Plex Mono
-- **Testes Unitários:** Vitest
-- **Sincronização de Projetos:** Utilitário C# / .NET 8 (`tools/projects-sync`) automatizado via GitHub Actions para listar repositórios públicos com o tópico `portfolio`
-
-## 🛠️ Como Executar
-
-### Instalar dependências
-```bash# Portfólio de Bernardo Fernando
+# Portfólio de Bernardo Fernando
 
 Portfólio de um desenvolvedor back-end em que a interface é só a vitrine: a lista de projetos se atualiza sozinha a partir dos meus repositórios públicos do GitHub, por meio de um robô em C# que roda no GitHub Actions e abre um Pull Request para eu revisar.
 
-Site: \[link do site\]
+Site: https://portfoliobernardofm.vercel.app/
 
 ## Por que este projeto existe
 
@@ -81,14 +66,6 @@ npx ng test --watch=false
 npm run build   # saída estática em dist/portfolio/browser
 ```
 
-Robô:
-
-```bash
-cd tools/projects-sync
-dotnet test
-export GITHUB_TOKEN=...   # opcional, evita o limite de requisições
-dotnet run --project ProjectsSync -- --user BernardoFM1 --out ../../src/content/projects.generated.json
-```
 
 ## Limitações e próximos passos
 
@@ -100,28 +77,3 @@ dotnet run --project ProjectsSync -- --user BernardoFM1 --out ../../src/content/
 ## Como foi construído
 
 Construído com apoio de IA. O desenho, as decisões e a revisão são meus. Parte do código, no front-end e no robô, foi escrita com assistência de IA, em fatias pequenas e revisadas por Pull Request, seguindo um briefing que eu escrevi (`AGENTS.md`). Cada decisão descrita aqui eu consigo explicar.
-
-npm install
-```
-
-### Iniciar servidor de desenvolvimento
-```bash
-npm start
-```
-Acesse `http://localhost:4200/` no navegador.
-
-### Executar testes unitários
-```bash
-npm test
-```
-
-### Testar robô de sincronização (.NET)
-```bash
-dotnet test tools/projects-sync/ProjectsSync.sln --nologo
-```
-
-### Gerar build de produção (Vercel)
-```bash
-npm run build
-```
-Os arquivos gerados para hospedagem estática são salvos em `dist/portfolio/browser`.
