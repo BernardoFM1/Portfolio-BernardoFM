@@ -20,7 +20,7 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render header with brand placeholder', async () => {
+  it('should render header with brand Bernardo Fernando', async () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     await fixture.whenStable();
@@ -34,6 +34,14 @@ describe('App', () => {
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('app-profile-hero')).toBeTruthy();
+  });
+
+  it('should render project carousel component', async () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    await fixture.whenStable();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-project-carousel')).toBeTruthy();
   });
 
   it('should react to language changes in the main sections', async () => {

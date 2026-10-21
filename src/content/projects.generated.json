@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "projeto-1",
+    "title": "[Nome do projeto 1]",
+    "summary": "[Primeiro parágrafo do README, puxado automaticamente do GitHub. Duas ou três linhas sobre o que o projeto faz.]",
+    "url": "https://github.com/BernardoFM1/projeto-1",
+    "languages": ["C#", "ASP.NET Core"],
+    "topics": ["portfolio", "csharp", "dotnet"],
+    "pushedAt": "2026-09-10T14:30:00Z"
+  },
+  {
+    "slug": "projeto-2",
+    "title": "[Nome do projeto 2]",
+    "summary": "[Primeiro parágrafo do README, puxado automaticamente do GitHub. Duas ou três linhas sobre o que o projeto faz.]",
+    "url": "https://github.com/BernardoFM1/projeto-2",
+    "languages": ["C#", "ASP.NET Core", "Entity Framework"],
+    "topics": ["portfolio", "api", "rest"],
+    "pushedAt": "2026-08-15T09:20:00Z"
+  },
+  {
+    "slug": "projeto-3",
+    "title": "[Nome do projeto 3]",
+    "summary": "[Primeiro parágrafo do README, puxado automaticamente do GitHub. Duas ou três linhas sobre o que o projeto faz.]",
+    "url": "https://github.com/BernardoFM1/projeto-3",
+    "languages": ["C#", "PostgreSQL", "Docker"],
+    "topics": ["portfolio", "database", "backend"],
+    "pushedAt": "2026-07-22T18:10:00Z"
+  },
+  {
+    "slug": "projeto-4",
+    "title": "[Nome do projeto 4]",
+    "summary": "[Primeiro parágrafo do README, puxado automaticamente do GitHub. Duas ou três linhas sobre o que o projeto faz.]",
+    "url": "https://github.com/BernardoFM1/projeto-4",
+    "languages": ["C#", "RabbitMQ"],
+    "topics": ["portfolio", "messaging"],
+    "pushedAt": "2026-06-05T11:00:00Z"
+  },
+  {
+    "slug": "projeto-5",
+    "title": "[Nome do projeto 5]",
+    "summary": "[Primeiro parágrafo do README, puxado automaticamente do GitHub. Duas ou três linhas sobre o que o projeto faz.]",
+    "url": "https://github.com/BernardoFM1/projeto-5",
+    "languages": ["C#", "xUnit"],
+    "topics": ["portfolio", "testing"],
+    "pushedAt": "2026-05-18T16:45:00Z"
+  },
+  {
+    "slug": "projeto-6",
+    "title": "[Nome do projeto 6]",
+    "summary": "[Primeiro parágrafo do README, puxado automaticamente do GitHub. Duas ou três linhas sobre o que o projeto faz.]",
+    "url": "https://github.com/BernardoFM1/projeto-6",
+    "languages": ["C#", "Redis"],
+    "topics": ["portfolio", "cache"],
+    "pushedAt": "2026-04-12T08:30:00Z"
+  }
+]

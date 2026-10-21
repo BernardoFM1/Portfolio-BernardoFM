@@ -1,0 +1,102 @@
+<section
+  id="projetos"
+  class="projects-section"
+  aria-labelledby="projects-heading"
+  (touchstart)="onTouchStart($event)"
+  (touchend)="onTouchEnd($event)"
+>
+  <div class="section-header">
+    <h2 id="projects-heading" class="section-title">
+      {{ i18n.t().projects.sectionTitle }}
+    </h2>
+  </div>
+
+  <div
+    class="carousel-container"
+    role="region"
+    [attr.aria-label]="i18n.t().projects.aria.region"
+  >
+    <div
+      class="carousel-track"
+      [class.no-prev]="!hasPrev()"
+      [class.no-next]="!hasNext()"
+    >
+      <!-- Vizinho Anterior (se existir) -->
+      <div class="slot slot-prev">
+        @if (prevProject()) {
+          <app-project-card
+            [project]="prevProject()!"
+            variant="neighbor"
+            position="prev"
+            (selectCard)="goToPrev()"
+          />
+        }
+      </div>
+
+      <!-- Projeto Ativo em Destaque -->
+      <div class="slot slot-active">
+        @if (currentProject()) {
+          <app-project-card
+            [project]="currentProject()!"
+            variant="featured"
+            position="active"
+          />
+        }
+      </div>
+
+      <!-- Vizinho Posterior (se existir) -->
+      <div class="slot slot-next">
+        @if (nextProject()) {
+          <app-project-card
+            [project]="nextProject()!"
+            variant="neighbor"
+            position="next"
+            (selectCard)="goToNext()"
+          />
+        }
+      </div>
+    </div>
+
+    <!-- Controles de Navegação -->
+    <div class="carousel-controls">
+      <button
+        type="button"
+        class="carousel-nav-btn"
+        [disabled]="!hasPrev()"
+        (click)="goToPrev()"
+        [attr.aria-label]="i18n.t().projects.aria.prev"
+      >
+        <span aria-hidden="true">&lsaquo;</span>
+      </button>
+
+      <!-- Pontinhos (apenas no computador) -->
+      <div class="carousel-dots" role="tablist" aria-label="Indicadores de projetos">
+        @for (item of projects(); track item.slug; let idx = $index) {
+          <button
+            type="button"
+            class="dot"
+            [class.active]="idx === currentIndex()"
+            [attr.aria-label]="'Ir para ' + item.title"
+            [attr.aria-selected]="idx === currentIndex()"
+            role="tab"
+            (click)="goToIndex(idx)"
+          ></button>
+        }
+      </div>
+
+      <span class="carousel-counter" aria-live="polite">
+        {{ currentIndex() + 1 }} / {{ total() }}
+      </span>
+
+      <button
+        type="button"
+        class="carousel-nav-btn"
+        [disabled]="!hasNext()"
+        (click)="goToNext()"
+        [attr.aria-label]="i18n.t().projects.aria.next"
+      >
+        <span aria-hidden="true">&rsaquo;</span>
+      </button>
+    </div>
+  </div>
+</section>

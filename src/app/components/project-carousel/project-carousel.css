@@ -1,0 +1,152 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.projects-section {
+  padding-bottom: 96px;
+  width: 100%;
+}
+
+.section-header {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+/* Container do Carrossel */
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  width: 100%;
+}
+
+.carousel-track {
+  display: grid;
+  grid-template-columns: 280px 1fr 280px;
+  align-items: stretch;
+  gap: 24px;
+  width: 100%;
+}
+
+.slot {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.slot-prev:empty,
+.slot-next:empty {
+  visibility: hidden;
+}
+
+/* Controles do Carrossel */
+.carousel-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-btn);
+  padding: 4px 12px;
+  background-color: transparent;
+}
+
+.carousel-nav-btn {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+.carousel-nav-btn:hover:not(:disabled) {
+  color: var(--accent);
+}
+
+.carousel-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--text-dim);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: width 0.2s ease, background-color 0.2s ease, border-radius 0.2s ease;
+}
+
+.dot.active {
+  width: 20px;
+  height: 6px;
+  border-radius: 4px;
+  background-color: var(--accent);
+}
+
+.dot:hover:not(.active) {
+  background-color: var(--text-muted);
+}
+
+.carousel-counter {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+  padding-inline: 8px;
+  min-width: 44px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Responsividade Mobile (conforme wireframe de 390 px)
+   ========================================================================== */
+@media (max-width: 820px) {
+  .projects-section {
+    padding-bottom: 48px;
+  }
+
+  .carousel-track {
+    grid-template-columns: 20px 1fr 20px;
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  .slot-prev,
+  .slot-next {
+    overflow: hidden;
+  }
+
+  .carousel-dots {
+    display: none;
+  }
+
+  .carousel-controls {
+    gap: 12px;
+  }
+}

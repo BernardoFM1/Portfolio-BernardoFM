@@ -1,0 +1,52 @@
+@if (variant() === 'featured') {
+  <article
+    class="project-card card-featured"
+    [attr.aria-label]="i18n.t().projects.aria.featured + ': ' + project().title"
+  >
+    <div class="card-header">
+      <h3 class="card-title">{{ project().title }}</h3>
+      @if (i18n.t().projects.ptNotice) {
+        <span class="pt-notice">{{ i18n.t().projects.ptNotice }}</span>
+      }
+    </div>
+
+    <p class="card-summary">{{ project().summary }}</p>
+
+    @if (project().languages.length > 0) {
+      <p class="card-tech">{{ project().languages.join(' · ') }}</p>
+    }
+
+    <div class="card-actions">
+      <a
+        [href]="project().url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card-link primary-link"
+      >
+        {{ i18n.t().projects.viewOnGithub }}
+      </a>
+      <a
+        [href]="project().url + '#readme'"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card-link secondary-link"
+      >
+        {{ i18n.t().projects.readReadme }}
+      </a>
+    </div>
+  </article>
+} @else {
+  <article
+    class="project-card card-neighbor"
+    [class.card-prev]="position() === 'prev'"
+    [class.card-next]="position() === 'next'"
+    role="button"
+    tabindex="0"
+    (click)="onNeighborClick()"
+    (keydown)="onKeydown($event)"
+    [attr.aria-label]="(position() === 'prev' ? i18n.t().projects.aria.prev : i18n.t().projects.aria.next) + ': ' + project().title"
+  >
+    <h3 class="card-title">{{ project().title }}</h3>
+    <p class="card-summary">{{ project().summary }}</p>
+  </article>
+}

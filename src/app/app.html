@@ -1,5 +1,5 @@
 <div class="site-wrapper">
-  <!-- 1. Cabeçalho desacoplado em componente próprio com LanguageToggle -->
+  <!-- 1. Cabeçalho com LanguageToggle -->
   <app-header></app-header>
 
   <!-- Conteúdo Principal -->
@@ -9,61 +9,7 @@
       <app-profile-hero></app-profile-hero>
 
       <!-- 3. Projetos (Carrossel) -->
-      <section id="projetos" class="projects-section" aria-labelledby="projects-heading">
-        <div class="section-header">
-          <h2 id="projects-heading" class="section-title">{{ i18n.t().projects.sectionTitle }}</h2>
-        </div>
-
-        <div class="carousel-container" role="region" [attr.aria-label]="i18n.t().projects.aria.region">
-          <div class="carousel-track">
-            <!-- Card vizinho anterior -->
-            <article class="project-card card-neighbor card-prev" [attr.aria-label]="i18n.t().projects.aria.prev">
-              <h3 class="card-title">[Nome do projeto 1]</h3>
-              <p class="card-summary">[Primeiro parágrafo do README, puxado automaticamente.]</p>
-            </article>
-
-            <!-- Card ativo central -->
-            <article class="project-card card-active" [attr.aria-label]="i18n.t().projects.aria.featured">
-              <h3 class="card-title">[Nome do projeto 2]</h3>
-              <p class="card-summary">
-                [Primeiro parágrafo do README, puxado automaticamente do GitHub. Duas ou três linhas sobre o que o projeto faz.]
-              </p>
-              <p class="card-tech">C# &middot; ASP.NET Core &middot; [tech]</p>
-              <div class="card-actions">
-                <a href="#" class="card-link primary-link">{{ i18n.t().projects.viewOnGithub }}</a>
-                <a href="#" class="card-link secondary-link">{{ i18n.t().projects.readReadme }}</a>
-              </div>
-            </article>
-
-            <!-- Card vizinho posterior -->
-            <article class="project-card card-neighbor card-next" [attr.aria-label]="i18n.t().projects.aria.next">
-              <h3 class="card-title">[Nome do projeto 3]</h3>
-              <p class="card-summary">[Primeiro parágrafo do README, puxado automaticamente.]</p>
-            </article>
-          </div>
-
-          <!-- Controles do carrossel -->
-          <div class="carousel-controls">
-            <button type="button" class="carousel-nav-btn" [attr.aria-label]="i18n.t().projects.aria.prev">
-              <span aria-hidden="true">&lsaquo;</span>
-            </button>
-
-            <div class="carousel-dots" aria-hidden="true">
-              <span class="dot"></span>
-              <span class="dot active"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
-
-            <span class="carousel-counter" aria-live="polite">2 / 6</span>
-
-            <button type="button" class="carousel-nav-btn" [attr.aria-label]="i18n.t().projects.aria.next">
-              <span aria-hidden="true">&rsaquo;</span>
-            </button>
-          </div>
-        </div>
-      </section>
+      <app-project-carousel></app-project-carousel>
     </div>
   </main>
 </div>
