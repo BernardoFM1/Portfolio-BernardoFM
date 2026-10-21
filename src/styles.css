@@ -1,0 +1,83 @@
+/* Design Tokens — Conforme definido em AGENTS.md */
+:root {
+  --bg: #141517;
+  --surface: #1C1E21;
+  --border: #2E3035;
+  --border-strong: #5A564D;
+  --text: #ECE8DF;
+  --text-muted: #A8A399;
+  --text-dim: #8F8A80;
+  --accent: #E8A33D;
+
+  --font-text: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Cascadia Code', 'Fira Code', monospace;
+
+  --radius-card: 12px;
+  --radius-btn: 8px;
+
+  --container-max-width: 1280px;
+}
+
+/* Reset e acessibilidade */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Foco visível com a cor de destaque --accent conforme AGENTS.md */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Respeito à preferência de redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Links */
+a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* Botões base */
+button {
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,109 @@
+<div class="site-wrapper">
+  <!-- 1. Cabeçalho -->
+  <header class="site-header" role="banner">
+    <div class="header-container">
+      <a href="#inicio" class="brand-link" aria-label="Página inicial">
+        <span class="brand-text">[seunome]</span>
+      </a>
+
+      <div class="header-actions">
+        <nav class="desktop-nav" aria-label="Navegação principal">
+          <ul class="nav-list">
+            <li><a href="#projetos" class="nav-link">Projetos</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a></li>
+            <li><a href="#contato" class="nav-link">Contato</a></li>
+          </ul>
+        </nav>
+
+        <div class="lang-toggle-group" role="group" aria-label="Seletor de idioma">
+          <button type="button" class="lang-btn active" aria-pressed="true">PT</button>
+          <button type="button" class="lang-btn" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main id="main-content" class="site-main">
+    <div class="main-container">
+      <!-- 2. Apresentação (ProfileHero) -->
+      <section id="inicio" class="hero-section" aria-label="Apresentação">
+        <div class="hero-layout">
+          <div class="hero-avatar" aria-hidden="true">
+            <div class="avatar-placeholder">
+              <span>[sua foto]</span>
+            </div>
+          </div>
+
+          <div class="hero-content">
+            <h1 class="hero-name">[Seu nome]</h1>
+            <p class="hero-stack">Desenvolvedor back-end &middot; C# &middot; ASP.NET Core</p>
+            <p class="hero-bio">[Sua apresentação em 2 ou 3 linhas, escrita por você, na sua voz.]</p>
+
+            <nav class="mobile-nav" aria-label="Links rápidos">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="quick-link">GitHub</a>
+              <a href="#contato" class="quick-link">Contato</a>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Projetos (Carrossel) -->
+      <section id="projetos" class="projects-section" aria-labelledby="projects-heading">
+        <div class="section-header">
+          <h2 id="projects-heading" class="section-title">PROJETOS</h2>
+        </div>
+
+        <div class="carousel-container" role="region" aria-label="Carrossel de projetos">
+          <div class="carousel-track">
+            <!-- Card vizinho anterior -->
+            <article class="project-card card-neighbor card-prev" aria-label="Projeto anterior">
+              <h3 class="card-title">[Nome do projeto 1]</h3>
+              <p class="card-summary">[Primeiro parágrafo do README, puxado automaticamente.]</p>
+            </article>
+
+            <!-- Card ativo central -->
+            <article class="project-card card-active" aria-label="Projeto em destaque">
+              <h3 class="card-title">[Nome do projeto 2]</h3>
+              <p class="card-summary">
+                [Primeiro parágrafo do README, puxado automaticamente do GitHub. Duas ou três linhas sobre o que o projeto faz.]
+              </p>
+              <p class="card-tech">C# &middot; ASP.NET Core &middot; [tech]</p>
+              <div class="card-actions">
+                <a href="#" class="card-link primary-link">Ver no GitHub &rarr;</a>
+                <a href="#" class="card-link secondary-link">Ler README</a>
+              </div>
+            </article>
+
+            <!-- Card vizinho posterior -->
+            <article class="project-card card-neighbor card-next" aria-label="Próximo projeto">
+              <h3 class="card-title">[Nome do projeto 3]</h3>
+              <p class="card-summary">[Primeiro parágrafo do README, puxado automaticamente.]</p>
+            </article>
+          </div>
+
+          <!-- Controles do carrossel -->
+          <div class="carousel-controls">
+            <button type="button" class="carousel-nav-btn" aria-label="Projeto anterior">
+              <span aria-hidden="true">&lsaquo;</span>
+            </button>
+
+            <div class="carousel-dots" aria-hidden="true">
+              <span class="dot"></span>
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+
+            <span class="carousel-counter" aria-live="polite">2 / 6</span>
+
+            <button type="button" class="carousel-nav-btn" aria-label="Próximo projeto">
+              <span aria-hidden="true">&rsaquo;</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
