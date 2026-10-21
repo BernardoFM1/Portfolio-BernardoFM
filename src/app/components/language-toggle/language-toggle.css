@@ -1,0 +1,40 @@
+:host {
+  display: inline-block;
+}
+
+.lang-toggle-group {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-btn);
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.lang-btn {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  min-height: 44px;
+  min-width: 44px;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.lang-btn.active {
+  color: var(--accent);
+  background-color: transparent;
+  outline: 1px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.lang-btn:hover:not(.active) {
+  color: var(--text);
+}

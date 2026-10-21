@@ -1,0 +1,32 @@
+{
+  "brand": "[seunome]",
+  "nav": {
+    "projects": "Projects",
+    "github": "GitHub",
+    "contact": "Contact"
+  },
+  "hero": {
+    "photoPlaceholder": "[your photo]",
+    "name": "[Seu nome]",
+    "role": "Back-end developer · C# · ASP.NET Core",
+    "bio": "[Sua apresentação em 2 ou 3 linhas, escrita por você, na sua voz.]"
+  },
+  "projects": {
+    "sectionTitle": "PROJECTS",
+    "viewOnGithub": "View on GitHub →",
+    "readReadme": "Read README",
+    "ptNotice": "Conteúdo em português",
+    "aria": {
+      "region": "Projects carousel",
+      "prev": "Previous project",
+      "next": "Next project",
+      "featured": "Featured project",
+      "neighbor": "Neighbor project"
+    }
+  },
+  "langToggle": {
+    "groupAria": "Language selector",
+    "ptAria": "Portuguese",
+    "enAria": "English"
+  }
+}

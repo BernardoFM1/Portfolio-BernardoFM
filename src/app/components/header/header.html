@@ -1,0 +1,32 @@
+<header class="site-header" role="banner">
+  <div class="header-container">
+    <a href="#inicio" class="brand-link" aria-label="Página inicial">
+      <span class="brand-text">{{ i18n.t().brand }}</span>
+    </a>
+
+    <div class="header-actions">
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li>
+            <a href="#projetos" class="nav-link">{{ i18n.t().nav.projects }}</a>
+          </li>
+          <li>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="nav-link"
+            >
+              {{ i18n.t().nav.github }}
+            </a>
+          </li>
+          <li>
+            <a href="#contato" class="nav-link">{{ i18n.t().nav.contact }}</a>
+          </li>
+        </ul>
+      </nav>
+
+      <app-language-toggle></app-language-toggle>
+    </div>
+  </div>
+</header>

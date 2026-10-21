@@ -1,11 +1,14 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Header } from './components/header/header';
+import { TranslationService } from './services/translation.service';
 
 @Component({
-  imports: [],
   selector: 'app-root',
-  styleUrl: './app.css',
+  standalone: true,
+  imports: [Header],
   templateUrl: './app.html',
+  styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('portfolio');
+  protected readonly i18n = inject(TranslationService);
 }

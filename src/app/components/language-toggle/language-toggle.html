@@ -1,0 +1,26 @@
+<div
+  class="lang-toggle-group"
+  role="group"
+  [attr.aria-label]="i18n.t().langToggle.groupAria"
+>
+  <button
+    type="button"
+    class="lang-btn"
+    [class.active]="i18n.currentLang() === 'pt'"
+    [attr.aria-pressed]="i18n.currentLang() === 'pt'"
+    [attr.aria-label]="i18n.t().langToggle.ptAria"
+    (click)="switchLang('pt')"
+  >
+    PT
+  </button>
+  <button
+    type="button"
+    class="lang-btn"
+    [class.active]="i18n.currentLang() === 'en'"
+    [attr.aria-pressed]="i18n.currentLang() === 'en'"
+    [attr.aria-label]="i18n.t().langToggle.enAria"
+    (click)="switchLang('en')"
+  >
+    EN
+  </button>
+</div>
