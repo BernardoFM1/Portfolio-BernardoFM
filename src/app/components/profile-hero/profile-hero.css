@@ -45,6 +45,11 @@
   max-width: 640px;
 }
 
+.hero-intro {
+  display: flex;
+  flex-direction: column;
+}
+
 .hero-name {
   font-size: 2.75rem;
   font-weight: 600;
@@ -102,7 +107,7 @@
     display: grid;
     grid-template-columns: 88px 1fr;
     grid-template-areas:
-      "avatar name"
+      "avatar intro"
       "bio bio"
       "links links";
     gap: 16px 20px;
@@ -127,22 +132,28 @@
     display: contents;
   }
 
+  .hero-intro {
+    grid-area: intro;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+
   .hero-name {
-    grid-area: name;
     font-size: 1.75rem;
-    align-self: flex-end;
+    line-height: 1.15;
   }
 
   .hero-stack {
-    grid-area: name;
-    margin-top: 48px;
+    margin-top: 0;
     font-size: 0.8125rem;
-    align-self: flex-start;
   }
 
   .hero-bio {
     grid-area: bio;
     font-size: 0.9375rem;
+    line-height: 1.5;
     margin-top: 4px;
   }
 
