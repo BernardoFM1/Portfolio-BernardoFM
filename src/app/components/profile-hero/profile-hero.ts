@@ -13,5 +13,5 @@ export class ProfileHero {
 
   readonly avatarUrl = input<string | null>('https://github.com/BernardoFM1.png');
   readonly githubUrl = input<string>('https://github.com/BernardoFM1');
-  readonly contactUrl = input<string>('#contato');
+  readonly contactUrl = input<string>('https://www.linkedin.com/in/bernardo-fernando1/');
 }

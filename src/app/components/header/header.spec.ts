@@ -30,8 +30,8 @@ describe('Header', () => {
     const navLinks = el.querySelectorAll<HTMLAnchorElement>('.desktop-nav .nav-link');
     expect(navLinks[0]?.textContent?.trim()).toBe('Projetos');
     expect(navLinks[1]?.textContent?.trim()).toBe('GitHub');
-    expect(navLinks[1]?.href).toContain('BernardoFM1');
     expect(navLinks[2]?.textContent?.trim()).toBe('Contato');
+    expect(navLinks[2]?.href).toContain('linkedin.com/in/bernardo-fernando1');
   });
 
   it('should update navigation when language changes to English', () => {

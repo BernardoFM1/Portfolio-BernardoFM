@@ -21,7 +21,14 @@
             </a>
           </li>
           <li>
-            <a href="#contato" class="nav-link">{{ i18n.t().nav.contact }}</a>
+            <a
+              [href]="contactUrl()"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="nav-link"
+            >
+              {{ i18n.t().nav.contact }}
+            </a>
           </li>
         </ul>
       </nav>

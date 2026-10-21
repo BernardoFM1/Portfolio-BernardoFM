@@ -62,4 +62,11 @@ describe('ProfileHero', () => {
       'Back-end developer · C# · ASP.NET Core',
     );
   });
+
+  it('should render quick links pointing to GitHub and LinkedIn', () => {
+    const el = fixture.nativeElement as HTMLElement;
+    const links = el.querySelectorAll<HTMLAnchorElement>('.mobile-nav .quick-link');
+    expect(links[0]?.href).toContain('BernardoFM1');
+    expect(links[1]?.href).toContain('linkedin.com/in/bernardo-fernando1');
+  });
 });

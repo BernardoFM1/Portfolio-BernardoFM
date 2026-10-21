@@ -13,4 +13,5 @@ export class Header {
   protected readonly i18n = inject(TranslationService);
 
   readonly githubUrl = input<string>('https://github.com/BernardoFM1');
+  readonly contactUrl = input<string>('https://www.linkedin.com/in/bernardo-fernando1/');
 }

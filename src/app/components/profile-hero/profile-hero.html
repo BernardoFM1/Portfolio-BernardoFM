@@ -33,7 +33,12 @@
         >
           {{ i18n.t().nav.github }}
         </a>
-        <a [href]="contactUrl()" class="quick-link">
+        <a
+          [href]="contactUrl()"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="quick-link"
+        >
           {{ i18n.t().nav.contact }}
         </a>
       </nav>
