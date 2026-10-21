@@ -53,7 +53,6 @@ export class ProjectCarousel {
 
   @HostListener('window:keydown', ['$event'])
   handleKeyboardNav(event: KeyboardEvent): void {
-    // Evita interceptar teclas se o foco estiver dentro de um campo de formulário
     const targetTag = (event.target as HTMLElement)?.tagName?.toLowerCase();
     if (targetTag === 'input' || targetTag === 'textarea' || targetTag === 'select') {
       return;

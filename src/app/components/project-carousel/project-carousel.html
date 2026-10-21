@@ -21,7 +21,6 @@
       [class.no-prev]="!hasPrev()"
       [class.no-next]="!hasNext()"
     >
-      <!-- Vizinho Anterior (se existir) -->
       <div class="slot slot-prev">
         @if (prevProject()) {
           <app-project-card
@@ -33,7 +32,6 @@
         }
       </div>
 
-      <!-- Projeto Ativo em Destaque -->
       <div class="slot slot-active">
         @if (currentProject()) {
           <app-project-card
@@ -44,7 +42,6 @@
         }
       </div>
 
-      <!-- Vizinho Posterior (se existir) -->
       <div class="slot slot-next">
         @if (nextProject()) {
           <app-project-card
@@ -57,7 +54,6 @@
       </div>
     </div>
 
-    <!-- Controles de Navegação -->
     <div class="carousel-controls">
       <button
         type="button"
@@ -69,7 +65,6 @@
         <span aria-hidden="true">&lsaquo;</span>
       </button>
 
-      <!-- Pontinhos (apenas no computador) -->
       <div class="carousel-dots" role="tablist" aria-label="Indicadores de projetos">
         @for (item of projects(); track item.slug; let idx = $index) {
           <button

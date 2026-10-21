@@ -3,13 +3,6 @@ using System.Text.RegularExpressions;
 
 namespace ProjectsSync;
 
-/// <summary>
-/// Extrai título e resumo de um README em Markdown.
-/// Título: primeiro H1 (ATX "# ...", setext "===" ou HTML &lt;h1&gt;).
-/// Resumo: primeiro parágrafo de texto depois do título, ignorando badges,
-/// imagens, blocos HTML, listas, tabelas e linhas de navegação.
-/// Se aparecer outro título antes de um parágrafo, não há resumo.
-/// </summary>
 public static class ReadmeParser
 {
     public const int MaxSummaryLength = 240;
@@ -48,7 +41,6 @@ public static class ReadmeParser
         return new ReadmeInfo(title, summary);
     }
 
-    /// <summary>Devolve o título e o índice da última linha que ele ocupa (-1 se não há título).</summary>
     private static (string? Title, int EndIndex) FindTitle(string[] lines)
     {
         var inFence = false;
@@ -63,7 +55,7 @@ public static class ReadmeParser
             {
                 var t = CleanInline(atx.Groups[1].Value);
                 if (t.Length > 0) return (t, i);
-                continue; // H1 só com imagem/badge: tenta o próximo
+                continue;
             }
 
             var html = HtmlH1.Match(line);
@@ -106,7 +98,6 @@ public static class ReadmeParser
 
             if (isHeading || isSetextUnderline)
             {
-                // Outro título antes de achar um parágrafo útil: não há resumo.
                 if (!TryBuild(paragraph, out var pending) || isSetextUnderline) return null;
                 return pending;
             }
@@ -126,7 +117,6 @@ public static class ReadmeParser
         return null;
     }
 
-    /// <summary>Transforma um bloco de linhas em resumo, se ele for texto corrido.</summary>
     private static bool TryBuild(List<string> block, out string? summary)
     {
         summary = null;

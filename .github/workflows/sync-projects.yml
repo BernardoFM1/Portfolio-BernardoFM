@@ -1,30 +1,23 @@
-# Coloque este arquivo em .github/workflows/sync-projects.yml
-#
-# Uma vez por dia (e quando você clicar em "Run workflow"), consulta os seus
-# repositórios públicos com o tópico "portfolio", regenera o
-# projects.generated.json e mantém UM Pull Request aberto com a mudança.
 name: Sync projects
 
 on:
   schedule:
-    - cron: "17 9 * * *" # 09:17 UTC (06:17 em Brasília). Evita a hora cheia, quando o GitHub fica mais lotado.
+    - cron: "17 9 * * *"
   workflow_dispatch:
 
-# Só o necessário: gravar a branch do robô e abrir o PR.
 permissions:
   contents: write
   pull-requests: write
 
-# Nunca duas execuções ao mesmo tempo mexendo na mesma branch.
 concurrency:
   group: sync-projects
   cancel-in-progress: false
 
 env:
-  TOOL_DIR: tools/projects-sync                # onde você colocou o projeto C#
-  OUT_PATH: src/content/projects.generated.json    # ajuste para o caminho real no seu repo
-  TOPIC: portfolio                             # tópico que marca o repo para entrar no site
-  BRANCH: bot/sync-projects                    # branch única e reaproveitada pelo robô
+  TOOL_DIR: tools/projects-sync
+  OUT_PATH: src/content/projects.generated.json
+  TOPIC: portfolio
+  BRANCH: bot/sync-projects
   OWNER: ${{ github.repository_owner }}
   RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
@@ -41,7 +34,6 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
-      # Se um teste do parser quebrar, o robô não gera nada.
       - name: Testes do robô
         run: dotnet test "$TOOL_DIR/ProjectsSync.sln" --nologo
 
@@ -59,7 +51,6 @@ jobs:
           BASE="$(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name)"
           OPEN_PR="$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')"
 
-          # Nada mudou em relação à branch principal.
           if [ -z "$(git status --porcelain -- "$OUT_PATH")" ]; then
             echo "Sem mudanças nos projetos."
             if [ -n "$OPEN_PR" ]; then
@@ -77,7 +68,6 @@ jobs:
           git commit -m "chore: atualiza projects.generated.json"
           git push --force origin "$BRANCH"
 
-          # Já existe PR aberto: o push acima já o atualizou.
           if [ -n "$OPEN_PR" ]; then
             echo "PR #$OPEN_PR atualizado."
             exit 0

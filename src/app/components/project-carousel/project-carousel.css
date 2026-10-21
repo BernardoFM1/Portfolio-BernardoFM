@@ -21,7 +21,6 @@
   text-transform: uppercase;
 }
 
-/* Container do Carrossel */
 .carousel-container {
   display: flex;
   flex-direction: column;
@@ -51,7 +50,6 @@
   pointer-events: none;
 }
 
-/* Controles do Carrossel */
 .carousel-controls {
   display: inline-flex;
   align-items: center;
@@ -124,9 +122,6 @@
   text-align: center;
 }
 
-/* ==========================================================================
-   Telas Intermediárias (Tablets: 821 px a 1080 px)
-   ========================================================================== */
 @media (min-width: 821px) and (max-width: 1080px) {
   .carousel-track {
     grid-template-columns: minmax(180px, 220px) 1fr minmax(180px, 220px);
@@ -134,9 +129,6 @@
   }
 }
 
-/* ==========================================================================
-   Responsividade Mobile (conforme wireframe de 390 px)
-   ========================================================================== */
 @media (max-width: 820px) {
   .projects-section {
     padding-bottom: 48px;

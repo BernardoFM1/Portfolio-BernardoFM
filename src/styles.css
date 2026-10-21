@@ -1,4 +1,3 @@
-/* Design Tokens — Conforme definido em AGENTS.md */
 :root {
   --bg: #141517;
   --surface: #1C1E21;
@@ -18,7 +17,6 @@
   --container-max-width: 1280px;
 }
 
-/* Reset e acessibilidade */
 *,
 *::before,
 *::after {
@@ -46,13 +44,11 @@ body {
   overflow-x: hidden;
 }
 
-/* Foco visível com a cor de destaque --accent conforme AGENTS.md */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
-/* Respeito à preferência de redução de movimento */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -64,7 +60,6 @@ body {
   }
 }
 
-/* Links */
 a {
   color: var(--text);
   text-decoration: none;
@@ -75,7 +70,6 @@ a:hover {
   color: var(--accent);
 }
 
-/* Botões base */
 button {
   font-family: inherit;
   color: inherit;

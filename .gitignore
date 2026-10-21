@@ -49,6 +49,7 @@ __screenshots__/
 .env
 .env.*
 *.env
+AGENTS.md
 
 # System files
 .DS_Store

@@ -93,10 +93,6 @@
 .mobile-nav .quick-link:hover {
   color: var(--accent);
 }
-
-/* ==========================================================================
-   Responsividade Mobile (conforme wireframe de 390 px)
-   ========================================================================== */
 @media (max-width: 820px) {
   .hero-section {
     padding-top: 24px;

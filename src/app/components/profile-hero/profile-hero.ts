@@ -11,20 +11,7 @@ import { TranslationService } from '../../services/translation.service';
 export class ProfileHero {
   protected readonly i18n = inject(TranslationService);
 
-  /**
-   * URL da foto do perfil (opcional).
-   * Pode ser um arquivo local (ex: 'profile.jpg') ou a URL do avatar do GitHub (ex: 'https://github.com/<usuario>.png').
-   * Se não for fornecida, exibe o placeholder reservado com borda pontilhada conforme o wireframe.
-   */
   readonly avatarUrl = input<string | null>('https://github.com/BernardoFM1.png');
-
-  /**
-   * Link para o perfil do GitHub.
-   */
   readonly githubUrl = input<string>('https://github.com/BernardoFM1');
-
-  /**
-   * Link ou âncora para contato.
-   */
   readonly contactUrl = input<string>('#contato');
 }

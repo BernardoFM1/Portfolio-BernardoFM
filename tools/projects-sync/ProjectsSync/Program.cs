@@ -1,9 +1,5 @@
 using ProjectsSync;
 
-// Uso:
-//   dotnet run --project tools/projects-sync/ProjectsSync -- --user SEU_USUARIO --out content/projects.generated.json
-// Opções: --topic portfolio (padrão)   Variável de ambiente: GITHUB_TOKEN (opcional, recomendada)
-
 var options = ParseArgs(args);
 if (!options.TryGetValue("user", out var user) || !options.TryGetValue("out", out var outPath))
 {

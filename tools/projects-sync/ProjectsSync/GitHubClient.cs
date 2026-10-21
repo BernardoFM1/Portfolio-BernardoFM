@@ -13,7 +13,6 @@ public sealed record RepoSummary(
     IReadOnlyList<string> Topics,
     string PushedAt);
 
-/// <summary>Cliente mínimo da API REST do GitHub (só o que o robô usa).</summary>
 public sealed class GitHubClient : IDisposable
 {
     private readonly HttpClient _http;
@@ -27,7 +26,6 @@ public sealed class GitHubClient : IDisposable
             _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     }
 
-    /// <summary>Lista os repositórios públicos do usuário, com paginação.</summary>
     public async Task<List<RepoSummary>> ListPublicReposAsync(string user, CancellationToken ct)
     {
         const int perPage = 100;
@@ -59,7 +57,6 @@ public sealed class GitHubClient : IDisposable
         return all;
     }
 
-    /// <summary>Linguagens do repositório, da mais usada para a menos usada.</summary>
     public async Task<List<string>> GetLanguagesAsync(string owner, string repo, CancellationToken ct)
     {
         using var doc = await GetJsonAsync($"repos/{owner}/{repo}/languages", ct);
@@ -71,7 +68,6 @@ public sealed class GitHubClient : IDisposable
             .ToList();
     }
 
-    /// <summary>README em texto puro, ou null se o repositório não tem README.</summary>
     public async Task<string?> GetReadmeAsync(string owner, string repo, CancellationToken ct)
     {
         using var req = new HttpRequestMessage(HttpMethod.Get, $"repos/{owner}/{repo}/readme");

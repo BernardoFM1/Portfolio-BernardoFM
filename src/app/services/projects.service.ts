@@ -35,9 +35,6 @@ export class ProjectsService {
       });
     }
 
-    // Regra de ordenação conforme AGENTS.md:
-    // 1. Projetos com priority vêm primeiro, em ordem crescente.
-    // 2. Os demais vêm depois, do pushedAt mais recente para o mais antigo.
     return visibleProjects.sort((a, b) => {
       const hasPriorityA = typeof a.priority === 'number';
       const hasPriorityB = typeof b.priority === 'number';
