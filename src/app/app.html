@@ -6,30 +6,7 @@
   <main id="main-content" class="site-main">
     <div class="main-container">
       <!-- 2. Apresentação (ProfileHero) -->
-      <section id="inicio" class="hero-section" [attr.aria-label]="i18n.t().hero.role">
-        <div class="hero-layout">
-          <div class="hero-avatar" aria-hidden="true">
-            <div class="avatar-placeholder">
-              <span>{{ i18n.t().hero.photoPlaceholder }}</span>
-            </div>
-          </div>
-
-          <div class="hero-content">
-            <h1 class="hero-name">{{ i18n.t().hero.name }}</h1>
-            <p class="hero-stack">{{ i18n.t().hero.role }}</p>
-            <p class="hero-bio">{{ i18n.t().hero.bio }}</p>
-
-            <nav class="mobile-nav" aria-label="Links rápidos">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="quick-link">
-                {{ i18n.t().nav.github }}
-              </a>
-              <a href="#contato" class="quick-link">
-                {{ i18n.t().nav.contact }}
-              </a>
-            </nav>
-          </div>
-        </div>
-      </section>
+      <app-profile-hero></app-profile-hero>
 
       <!-- 3. Projetos (Carrossel) -->
       <section id="projetos" class="projects-section" aria-labelledby="projects-heading">

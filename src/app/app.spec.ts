@@ -28,6 +28,14 @@ describe('App', () => {
     expect(compiled.querySelector('.brand-text')?.textContent?.trim()).toBe('[seunome]');
   });
 
+  it('should render profile hero component', async () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    await fixture.whenStable();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-profile-hero')).toBeTruthy();
+  });
+
   it('should react to language changes in the main sections', async () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();

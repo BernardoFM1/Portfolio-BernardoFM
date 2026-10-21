@@ -1,0 +1,39 @@
+<section id="inicio" class="hero-section" [attr.aria-label]="i18n.t().hero.role">
+  <div class="hero-layout">
+    <div class="hero-avatar">
+      @if (avatarUrl()) {
+        <img
+          [src]="avatarUrl()!"
+          [alt]="i18n.t().hero.name"
+          class="avatar-img"
+          width="176"
+          height="176"
+        />
+      } @else {
+        <div class="avatar-placeholder" aria-hidden="true">
+          <span>{{ i18n.t().hero.photoPlaceholder }}</span>
+        </div>
+      }
+    </div>
+
+    <div class="hero-content">
+      <h1 class="hero-name">{{ i18n.t().hero.name }}</h1>
+      <p class="hero-stack">{{ i18n.t().hero.role }}</p>
+      <p class="hero-bio">{{ i18n.t().hero.bio }}</p>
+
+      <nav class="mobile-nav" aria-label="Links rápidos">
+        <a
+          [href]="githubUrl()"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="quick-link"
+        >
+          {{ i18n.t().nav.github }}
+        </a>
+        <a [href]="contactUrl()" class="quick-link">
+          {{ i18n.t().nav.contact }}
+        </a>
+      </nav>
+    </div>
+  </div>
+</section>
