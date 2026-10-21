@@ -20,28 +20,34 @@ export class ProjectCarousel {
   readonly total = computed(() => this.projects().length);
   readonly currentProject = computed(() => this.projects()[this.currentIndex()] ?? null);
   readonly prevProject = computed(() => {
-    const idx = this.currentIndex();
-    return idx > 0 ? this.projects()[idx - 1] : null;
+    const tot = this.total();
+    if (tot <= 1) return null;
+    const prevIdx = (this.currentIndex() - 1 + tot) % tot;
+    return this.projects()[prevIdx];
   });
   readonly nextProject = computed(() => {
-    const idx = this.currentIndex();
-    return idx < this.total() - 1 ? this.projects()[idx + 1] : null;
+    const tot = this.total();
+    if (tot <= 1) return null;
+    const nextIdx = (this.currentIndex() + 1) % tot;
+    return this.projects()[nextIdx];
   });
 
-  readonly hasPrev = computed(() => this.currentIndex() > 0);
-  readonly hasNext = computed(() => this.currentIndex() < this.total() - 1);
+  readonly hasPrev = computed(() => this.total() > 1);
+  readonly hasNext = computed(() => this.total() > 1);
 
   private touchStartX = 0;
 
   goToPrev(): void {
-    if (this.hasPrev()) {
-      this.currentIndex.update((i) => i - 1);
+    const tot = this.total();
+    if (tot > 1) {
+      this.currentIndex.update((i) => (i - 1 + tot) % tot);
     }
   }
 
   goToNext(): void {
-    if (this.hasNext()) {
-      this.currentIndex.update((i) => i + 1);
+    const tot = this.total();
+    if (tot > 1) {
+      this.currentIndex.update((i) => (i + 1) % tot);
     }
   }
 
