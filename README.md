@@ -1,59 +1,40 @@
-# Portfolio
+# Portfolio — Bernardo Fernando
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.3.
+Portfólio pessoal de desenvolvedor back-end (C# e ASP.NET Core), construído em Angular estático (Standalone Components e Signals), vanilla CSS com Design Tokens e suporte a dois idiomas (Português e Inglês).
 
-## Development server
+## 🚀 Tecnologias
 
-To start a local development server, run:
+- **Front-end:** Angular (Standalone Components, Signals)
+- **Estilização:** CSS puro com Design System baseado em tokens (`--bg`, `--surface`, `--accent`, etc.)
+- **Tipografia:** IBM Plex Sans & IBM Plex Mono
+- **Testes Unitários:** Vitest
+- **Sincronização de Projetos:** Utilitário C# / .NET 8 (`tools/projects-sync`) automatizado via GitHub Actions para listar repositórios públicos com o tópico `portfolio`
 
+## 🛠️ Como Executar
+
+### Instalar dependências
 ```bash
-ng serve
+npm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### Iniciar servidor de desenvolvimento
 ```bash
-ng generate component component-name
+npm start
+```
+Acesse `http://localhost:4200/` no navegador.
+
+### Executar testes unitários
+```bash
+npm test
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+### Testar robô de sincronização (.NET)
 ```bash
-ng generate --help
+dotnet test tools/projects-sync/ProjectsSync.sln --nologo
 ```
 
-## Building
-
-To build the project run:
-
+### Gerar build de produção (Vercel)
 ```bash
-ng build
+npm run build
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Os arquivos gerados para hospedagem estática são salvos em `dist/portfolio/browser`.
