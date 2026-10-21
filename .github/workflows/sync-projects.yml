@@ -1,0 +1,103 @@
+# Coloque este arquivo em .github/workflows/sync-projects.yml
+#
+# Uma vez por dia (e quando você clicar em "Run workflow"), consulta os seus
+# repositórios públicos com o tópico "portfolio", regenera o
+# projects.generated.json e mantém UM Pull Request aberto com a mudança.
+name: Sync projects
+
+on:
+  schedule:
+    - cron: "17 9 * * *" # 09:17 UTC (06:17 em Brasília). Evita a hora cheia, quando o GitHub fica mais lotado.
+  workflow_dispatch:
+
+# Só o necessário: gravar a branch do robô e abrir o PR.
+permissions:
+  contents: write
+  pull-requests: write
+
+# Nunca duas execuções ao mesmo tempo mexendo na mesma branch.
+concurrency:
+  group: sync-projects
+  cancel-in-progress: false
+
+env:
+  TOOL_DIR: tools/projects-sync                # onde você colocou o projeto C#
+  OUT_PATH: src/content/projects.generated.json    # ajuste para o caminho real no seu repo
+  TOPIC: portfolio                             # tópico que marca o repo para entrar no site
+  BRANCH: bot/sync-projects                    # branch única e reaproveitada pelo robô
+  OWNER: ${{ github.repository_owner }}
+  RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Instalar o .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      # Se um teste do parser quebrar, o robô não gera nada.
+      - name: Testes do robô
+        run: dotnet test "$TOOL_DIR/ProjectsSync.sln" --nologo
+
+      - name: Gerar projects.generated.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: dotnet run --project "$TOOL_DIR/ProjectsSync" -- --user "$OWNER" --out "$OUT_PATH" --topic "$TOPIC"
+
+      - name: Abrir ou atualizar o Pull Request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          BASE="$(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name)"
+          OPEN_PR="$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')"
+
+          # Nada mudou em relação à branch principal.
+          if [ -z "$(git status --porcelain -- "$OUT_PATH")" ]; then
+            echo "Sem mudanças nos projetos."
+            if [ -n "$OPEN_PR" ]; then
+              gh pr close "$OPEN_PR" --delete-branch \
+                --comment "Fechado automaticamente: a lista de projetos já está igual à da $BASE."
+            fi
+            exit 0
+          fi
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git checkout -B "$BRANCH"
+          git add -- "$OUT_PATH"
+          git commit -m "chore: atualiza projects.generated.json"
+          git push --force origin "$BRANCH"
+
+          # Já existe PR aberto: o push acima já o atualizou.
+          if [ -n "$OPEN_PR" ]; then
+            echo "PR #$OPEN_PR atualizado."
+            exit 0
+          fi
+
+          cat > pr-body.md <<BODY
+          Atualização automática da lista de projetos (repositórios públicos com o tópico \`$TOPIC\`).
+
+          **Antes de aprovar, confira na prévia da Vercel:**
+          - se os projetos novos são os que você quer mostrar;
+          - se título e resumo de cada card fazem sentido (vêm do README);
+          - se algum projeto ficou sem resumo (o log do workflow avisa).
+
+          O que decide a ordem (\`priority\`) e o que fica escondido (\`hidden\`) fica em \`projects.overrides.json\`, que o robô não toca.
+
+          Execução: $RUN_URL
+          BODY
+
+          gh pr create \
+            --base "$BASE" \
+            --head "$BRANCH" \
+            --title "Atualizar projetos do portfólio" \
+            --body-file pr-body.md

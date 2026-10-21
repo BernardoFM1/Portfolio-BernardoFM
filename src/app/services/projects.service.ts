@@ -12,15 +12,18 @@ export class ProjectsService {
 
   readonly projects = signal<ProjectItem[]>(this.processProjects());
 
-  private processProjects(): ProjectItem[] {
+  processProjects(
+    generated: ProjectGenerated[] = this.rawGenerated,
+    overrides: ProjectOverride[] = this.rawOverrides
+  ): ProjectItem[] {
     const overridesMap = new Map<string, ProjectOverride>();
-    for (const override of this.rawOverrides) {
+    for (const override of overrides) {
       overridesMap.set(override.slug, override);
     }
 
     const visibleProjects: ProjectItem[] = [];
 
-    for (const item of this.rawGenerated) {
+    for (const item of generated) {
       const override = overridesMap.get(item.slug);
       if (override?.hidden) {
         continue;
