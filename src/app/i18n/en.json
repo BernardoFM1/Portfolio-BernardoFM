@@ -1,5 +1,5 @@
 {
-  "brand": "[seunome]",
+  "brand": "Bernardo Fernando",
   "nav": {
     "projects": "Projects",
     "github": "GitHub",
@@ -7,7 +7,7 @@
   },
   "hero": {
     "photoPlaceholder": "[your photo]",
-    "name": "[Seu nome]",
+    "name": "Bernardo Fernando",
     "role": "Back-end developer · C# · ASP.NET Core",
     "bio": "[Sua apresentação em 2 ou 3 linhas, escrita por você, na sua voz.]"
   },

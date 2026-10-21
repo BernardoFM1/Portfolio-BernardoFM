@@ -25,11 +25,12 @@ describe('Header', () => {
 
   it('should render brand and navigation in Portuguese by default', () => {
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.querySelector('.brand-text')?.textContent?.trim()).toBe('[seunome]');
+    expect(el.querySelector('.brand-text')?.textContent?.trim()).toBe('Bernardo Fernando');
 
-    const navLinks = el.querySelectorAll('.desktop-nav .nav-link');
+    const navLinks = el.querySelectorAll<HTMLAnchorElement>('.desktop-nav .nav-link');
     expect(navLinks[0]?.textContent?.trim()).toBe('Projetos');
     expect(navLinks[1]?.textContent?.trim()).toBe('GitHub');
+    expect(navLinks[1]?.href).toContain('BernardoFM1');
     expect(navLinks[2]?.textContent?.trim()).toBe('Contato');
   });
 

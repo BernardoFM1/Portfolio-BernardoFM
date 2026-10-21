@@ -25,7 +25,7 @@ describe('App', () => {
     fixture.detectChanges();
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.brand-text')?.textContent?.trim()).toBe('[seunome]');
+    expect(compiled.querySelector('.brand-text')?.textContent?.trim()).toBe('Bernardo Fernando');
   });
 
   it('should render profile hero component', async () => {
