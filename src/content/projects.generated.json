@@ -8,28 +8,6 @@
     "topics": [
       "typescript"
     ],
-    "pushedAt": "2026-10-21T17:17:04Z"
-  },
-  {
-    "slug": "agente_estoque",
-    "title": "agente_estoque",
-    "summary": "",
-    "url": "https://github.com/BernardoFM1/agente_estoque",
-    "languages": [
-      "Python"
-    ],
-    "topics": [],
-    "pushedAt": "2026-03-30T01:25:08Z"
-  },
-  {
-    "slug": "Cobranca-Automatica",
-    "title": "Cobrança Automática",
-    "summary": "Este programa foi feito para otimizar o tempo daqueles que fornecem algum tipo de serviço, automatizando a cobrança dos serviços.",
-    "url": "https://github.com/BernardoFM1/Cobranca-Automatica",
-    "languages": [
-      "Python"
-    ],
-    "topics": [],
-    "pushedAt": "2025-03-31T21:07:12Z"
+    "pushedAt": "2026-10-21T18:27:20Z"
   }
 ]
