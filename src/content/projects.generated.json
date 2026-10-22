@@ -4,7 +4,9 @@
     "title": "Alerta Bairro",
     "summary": "Rede comunitária de alertas hiperlocais sobre emergências climáticas em Volta Redonda, RJ. Moradores avisam e consultam alagamentos, falta de luz e quedas de árvores rua a rua, por WhatsApp, Telegram ou painel web.",
     "url": "https://github.com/BernardoFM1/P-AlertaBairro",
-    "languages": [],
+    "languages": [
+      "TypeScript"
+    ],
     "topics": [
       "typescript"
     ],

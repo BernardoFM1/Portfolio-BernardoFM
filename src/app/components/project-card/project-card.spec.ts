@@ -76,6 +76,22 @@ describe('ProjectCard', () => {
     expect(notice?.textContent?.trim()).toBe('Conteúdo em português');
   });
 
+  it('should fallback to formatted topics when languages is empty', () => {
+    host.project.set({
+      slug: 'stub-project',
+      title: 'Projeto Stub',
+      summary: 'Resumo do projeto stub.',
+      url: 'https://github.com/BernardoFM1/stub-project',
+      languages: [],
+      topics: ['typescript'],
+      pushedAt: '2026-10-01T12:00:00Z',
+    });
+    fixture.detectChanges();
+
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('.card-tech')?.textContent?.trim()).toBe('TypeScript');
+  });
+
   it('should render neighbor card and emit selectCard on click', () => {
     host.variant.set('neighbor');
     host.position.set('next');

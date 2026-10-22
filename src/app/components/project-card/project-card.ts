@@ -1,6 +1,7 @@
-import { Component, inject, input, output } from '@angular/core';
+import { Component, computed, inject, input, output } from '@angular/core';
 import { ProjectItem } from '../../models/project.model';
 import { TranslationService } from '../../services/translation.service';
+import { getProjectTechnologies } from '../../utils/tech-formatter';
 
 @Component({
   selector: 'app-project-card',
@@ -17,6 +18,8 @@ export class ProjectCard {
   readonly position = input<'prev' | 'active' | 'next'>('active');
 
   readonly selectCard = output<void>();
+
+  readonly technologies = computed(() => getProjectTechnologies(this.project()));
 
   onNeighborClick(): void {
     if (this.variant() === 'neighbor') {

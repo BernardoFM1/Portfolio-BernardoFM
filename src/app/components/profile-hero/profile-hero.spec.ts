@@ -52,14 +52,14 @@ describe('ProfileHero', () => {
     const el = fixture.nativeElement as HTMLElement;
     expect(el.querySelector('.hero-name')?.textContent?.trim()).toBe('Bernardo Fernando');
     expect(el.querySelector('.hero-stack')?.textContent?.trim()).toBe(
-      'Desenvolvedor back-end · C# · ASP.NET Core',
+      'Desenvolvedor Backend · C# · ASP.NET Core',
     );
 
     i18n.setLang('en');
     fixture.detectChanges();
 
     expect(el.querySelector('.hero-stack')?.textContent?.trim()).toBe(
-      'Back-end developer · C# · ASP.NET Core',
+      'Backend Developer · C# · ASP.NET Core',
     );
   });
 

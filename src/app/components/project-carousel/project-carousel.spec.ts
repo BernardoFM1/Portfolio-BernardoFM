@@ -1,7 +1,39 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { signal } from '@angular/core';
 import { ProjectCarousel } from './project-carousel';
 import { ProjectsService } from '../../services/projects.service';
 import { TranslationService } from '../../services/translation.service';
+import { ProjectItem } from '../../models/project.model';
+
+const mockProjects: ProjectItem[] = [
+  {
+    slug: 'proj-1',
+    title: 'Projeto 1',
+    summary: 'Resumo do projeto 1',
+    url: 'https://github.com/u/1',
+    languages: ['C#'],
+    topics: ['csharp'],
+    pushedAt: '2026-10-01T12:00:00Z',
+  },
+  {
+    slug: 'proj-2',
+    title: 'Projeto 2',
+    summary: 'Resumo do projeto 2',
+    url: 'https://github.com/u/2',
+    languages: ['TypeScript'],
+    topics: ['typescript'],
+    pushedAt: '2026-09-01T12:00:00Z',
+  },
+  {
+    slug: 'proj-3',
+    title: 'Projeto 3',
+    summary: 'Resumo do projeto 3',
+    url: 'https://github.com/u/3',
+    languages: ['Python'],
+    topics: ['python'],
+    pushedAt: '2026-08-01T12:00:00Z',
+  },
+];
 
 describe('ProjectCarousel', () => {
   let fixture: ComponentFixture<ProjectCarousel>;
@@ -11,6 +43,14 @@ describe('ProjectCarousel', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProjectCarousel],
+      providers: [
+        {
+          provide: ProjectsService,
+          useValue: {
+            projects: signal(mockProjects),
+          },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProjectCarousel);

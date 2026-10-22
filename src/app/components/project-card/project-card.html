@@ -12,8 +12,8 @@
 
     <p class="card-summary">{{ project().summary }}</p>
 
-    @if (project().languages.length > 0) {
-      <p class="card-tech">{{ project().languages.join(' · ') }}</p>
+    @if (technologies().length > 0) {
+      <p class="card-tech">{{ technologies().join(' · ') }}</p>
     }
 
     <div class="card-actions">

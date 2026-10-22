@@ -54,6 +54,42 @@ public class ProjectBuilderTests
     }
 
     [Fact]
+    public void Sem_linguagens_usa_topicos_formatados_como_tecnologias()
+    {
+        var p = ProjectBuilder.Build(
+            Repo(topics: new[] { "portfolio", "typescript", "csharp" }),
+            new ReadmeInfo("T", "R"),
+            Array.Empty<string>(),
+            "portfolio");
+
+        Assert.Equal(new[] { "C#", "TypeScript" }, p.Languages);
+        Assert.Equal(new[] { "csharp", "typescript" }, p.Topics);
+    }
+
+    [Fact]
+    public void Com_linguagens_diretas_mantem_linguagens_e_nao_sobrescreve()
+    {
+        var p = ProjectBuilder.Build(
+            Repo(topics: new[] { "portfolio", "typescript" }),
+            new ReadmeInfo("T", "R"),
+            new[] { "Python" },
+            "portfolio");
+
+        Assert.Equal(new[] { "Python" }, p.Languages);
+        Assert.Equal(new[] { "typescript" }, p.Topics);
+    }
+
+    [Fact]
+    public void Formata_tecnologias_conhecidas_e_desconhecidas()
+    {
+        Assert.Equal("TypeScript", ProjectBuilder.FormatTechnology("typescript"));
+        Assert.Equal("C#", ProjectBuilder.FormatTechnology("csharp"));
+        Assert.Equal(".NET", ProjectBuilder.FormatTechnology("dotnet"));
+        Assert.Equal("ASP.NET Core", ProjectBuilder.FormatTechnology("aspnet-core"));
+        Assert.Equal("Clean Architecture", ProjectBuilder.FormatTechnology("clean-architecture"));
+    }
+
+    [Fact]
     public void Ordena_do_mais_recente_para_o_mais_antigo()
     {
         var a = new GeneratedProject("a", "A", "", "u", new string[0], new string[0], "2026-01-01T00:00:00Z");
