@@ -22,34 +22,58 @@
       [class.no-next]="!hasNext()"
     >
       <div class="slot slot-prev">
-        @if (prevProject()) {
-          <app-project-card
-            [project]="prevProject()!"
-            variant="neighbor"
-            position="prev"
-            (selectCard)="goToPrev()"
-          />
+        @for (item of [prevProject()]; track item?.slug) {
+          @if (item) {
+            <div
+              class="card-wrapper"
+              [class.slide-next]="animationDirection() === 'next'"
+              [class.slide-prev]="animationDirection() === 'prev'"
+            >
+              <app-project-card
+                [project]="item"
+                variant="neighbor"
+                position="prev"
+                (selectCard)="goToPrev()"
+              />
+            </div>
+          }
         }
       </div>
 
       <div class="slot slot-active">
-        @if (currentProject()) {
-          <app-project-card
-            [project]="currentProject()!"
-            variant="featured"
-            position="active"
-          />
+        @for (item of [currentProject()]; track item?.slug) {
+          @if (item) {
+            <div
+              class="card-wrapper"
+              [class.slide-next]="animationDirection() === 'next'"
+              [class.slide-prev]="animationDirection() === 'prev'"
+            >
+              <app-project-card
+                [project]="item"
+                variant="featured"
+                position="active"
+              />
+            </div>
+          }
         }
       </div>
 
       <div class="slot slot-next">
-        @if (nextProject()) {
-          <app-project-card
-            [project]="nextProject()!"
-            variant="neighbor"
-            position="next"
-            (selectCard)="goToNext()"
-          />
+        @for (item of [nextProject()]; track item?.slug) {
+          @if (item) {
+            <div
+              class="card-wrapper"
+              [class.slide-next]="animationDirection() === 'next'"
+              [class.slide-prev]="animationDirection() === 'prev'"
+            >
+              <app-project-card
+                [project]="item"
+                variant="neighbor"
+                position="next"
+                (selectCard)="goToNext()"
+              />
+            </div>
+          }
         }
       </div>
     </div>

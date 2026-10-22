@@ -35,11 +35,14 @@ export class ProjectCarousel {
   readonly hasPrev = computed(() => this.total() > 1);
   readonly hasNext = computed(() => this.total() > 1);
 
+  readonly animationDirection = signal<'next' | 'prev' | null>(null);
+
   private touchStartX = 0;
 
   goToPrev(): void {
     const tot = this.total();
     if (tot > 1) {
+      this.animationDirection.set('prev');
       this.currentIndex.update((i) => (i - 1 + tot) % tot);
     }
   }
@@ -47,12 +50,14 @@ export class ProjectCarousel {
   goToNext(): void {
     const tot = this.total();
     if (tot > 1) {
+      this.animationDirection.set('next');
       this.currentIndex.update((i) => (i + 1) % tot);
     }
   }
 
   goToIndex(index: number): void {
-    if (index >= 0 && index < this.total()) {
+    if (index >= 0 && index < this.total() && index !== this.currentIndex()) {
+      this.animationDirection.set(index > this.currentIndex() ? 'next' : 'prev');
       this.currentIndex.set(index);
     }
   }

@@ -82,4 +82,20 @@ describe('ProjectCarousel', () => {
       expect(component.currentIndex()).toBe(1);
     }
   });
+
+  it('should set animationDirection and apply slide classes when navigating', () => {
+    expect(component.animationDirection()).toBeNull();
+
+    component.goToNext();
+    fixture.detectChanges();
+    expect(component.animationDirection()).toBe('next');
+    const activeWrapperNext = fixture.nativeElement.querySelector('.slot-active .card-wrapper');
+    expect(activeWrapperNext?.classList.contains('slide-next')).toBe(true);
+
+    component.goToPrev();
+    fixture.detectChanges();
+    expect(component.animationDirection()).toBe('prev');
+    const activeWrapperPrev = fixture.nativeElement.querySelector('.slot-active .card-wrapper');
+    expect(activeWrapperPrev?.classList.contains('slide-prev')).toBe(true);
+  });
 });
