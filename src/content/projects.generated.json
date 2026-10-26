@@ -1,5 +1,17 @@
 [
   {
+    "slug": "AtendenteDeLoja",
+    "title": "Atendente de Loja",
+    "summary": "Assistente virtual inteligente para atendimento automatizado em lojas e comércios via WhatsApp. O sistema utiliza uma arquitetura baseada em RAG (Retrieval-Augmented Generation), histórico de conversação em memória persistente, buffer com…",
+    "url": "https://github.com/BernardoFM1/AtendenteDeLoja",
+    "languages": [
+      "Python",
+      "Dockerfile"
+    ],
+    "topics": [],
+    "pushedAt": "2026-10-26T04:15:02Z"
+  },
+  {
     "slug": "P-AlertaBairro",
     "title": "Alerta Bairro",
     "summary": "Rede comunitária de alertas hiperlocais sobre emergências climáticas em Volta Redonda, RJ. Moradores avisam e consultam alagamentos, falta de luz e quedas de árvores rua a rua, por WhatsApp, Telegram ou painel web.",
