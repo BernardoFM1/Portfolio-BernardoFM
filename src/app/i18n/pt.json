@@ -28,5 +28,9 @@
     "groupAria": "Seletor de idioma",
     "ptAria": "Português",
     "enAria": "Inglês"
+  },
+  "themeToggle": {
+    "switchToLight": "Mudar para modo claro",
+    "switchToDark": "Mudar para modo escuro"
   }
 }

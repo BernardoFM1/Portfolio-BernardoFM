@@ -28,5 +28,9 @@
     "groupAria": "Language selector",
     "ptAria": "Portuguese",
     "enAria": "English"
+  },
+  "themeToggle": {
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode"
   }
 }

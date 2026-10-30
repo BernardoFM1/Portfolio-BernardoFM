@@ -1,11 +1,12 @@
 import { Component, inject, input } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 import { LanguageToggle } from '../language-toggle/language-toggle';
+import { ThemeToggle } from '../theme-toggle/theme-toggle';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [LanguageToggle],
+  imports: [LanguageToggle, ThemeToggle],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })

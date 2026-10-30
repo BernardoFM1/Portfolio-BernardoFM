@@ -1,4 +1,5 @@
 :root {
+  /* Dark Theme (Padrão) */
   --bg: #141517;
   --surface: #1C1E21;
   --border: #2E3035;
@@ -7,6 +8,7 @@
   --text-muted: #A8A399;
   --text-dim: #8F8A80;
   --accent: #56A2E8;
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
 
   --font-text: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-mono: 'IBM Plex Mono', 'Cascadia Code', 'Fira Code', monospace;
@@ -15,6 +17,19 @@
   --radius-btn: 8px;
 
   --container-max-width: 1280px;
+}
+
+[data-theme='light'] {
+  /* Light Theme (Confortável aos olhos, tom off-white suave/papel) */
+  --bg: #F7F6F3;
+  --surface: #FFFFFF;
+  --border: #E5E2DA;
+  --border-strong: #CBC5B8;
+  --text: #141517;
+  --text-muted: #58554F;
+  --text-dim: #706C64;
+  --accent: #1868DB;
+  --card-shadow: 0 4px 20px rgba(20, 21, 23, 0.08);
 }
 
 *,
@@ -32,6 +47,10 @@ html {
   overflow-x: hidden;
 }
 
+html[data-theme='light'] {
+  color-scheme: light;
+}
+
 body {
   min-height: 100vh;
   background-color: var(--bg);
@@ -42,6 +61,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 :focus-visible {

@@ -49,4 +49,9 @@ describe('Header', () => {
     const el = fixture.nativeElement as HTMLElement;
     expect(el.querySelector('app-language-toggle')).toBeTruthy();
   });
+
+  it('should include theme toggle component', () => {
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('app-theme-toggle')).toBeTruthy();
+  });
 });
