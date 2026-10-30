@@ -9,7 +9,9 @@
     "photoPlaceholder": "[your photo]",
     "name": "Bernardo Fernando",
     "role": "Backend Developer · C# · ASP.NET Core",
-    "bio": "Hi! I am Bernardo Fernando, Backend Developer with focus on C# and ASP.NET Core."
+    "bio": "Hi! I am Bernardo Fernando, Backend Developer with focus on C# and ASP.NET Core.",
+    "githubAria": "Bernardo Fernando's GitHub profile",
+    "linkedinAria": "Bernardo Fernando's LinkedIn profile"
   },
   "projects": {
     "sectionTitle": "PROJECTS",

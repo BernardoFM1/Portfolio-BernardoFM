@@ -63,10 +63,22 @@ describe('ProfileHero', () => {
     );
   });
 
-  it('should render quick links pointing to GitHub and LinkedIn', () => {
+  it('should render social icon buttons pointing to GitHub and LinkedIn with accessible aria-labels', () => {
     const el = fixture.nativeElement as HTMLElement;
-    const links = el.querySelectorAll<HTMLAnchorElement>('.mobile-nav .quick-link');
+    const links = el.querySelectorAll<HTMLAnchorElement>('.hero-social-links .social-btn');
+    expect(links.length).toBe(2);
+
     expect(links[0]?.href).toContain('BernardoFM1');
+    expect(links[0]?.getAttribute('aria-label')).toBe('Perfil de Bernardo Fernando no GitHub');
+
     expect(links[1]?.href).toContain('linkedin.com/in/bernardo-fernando1');
+    expect(links[1]?.getAttribute('aria-label')).toBe('Perfil de Bernardo Fernando no LinkedIn');
+
+    // Language change updates aria-labels
+    i18n.setLang('en');
+    fixture.detectChanges();
+
+    expect(links[0]?.getAttribute('aria-label')).toBe("Bernardo Fernando's GitHub profile");
+    expect(links[1]?.getAttribute('aria-label')).toBe("Bernardo Fernando's LinkedIn profile");
   });
 });
