@@ -1,5 +1,16 @@
 [
   {
+    "slug": "API_CATALOGO",
+    "title": "\uD83D\uDCE6 Catálogo de Produtos e Categorias - ASP.NET Core Web API",
+    "summary": "Uma API RESTful moderna e robusta desenvolvida em .NET 8 e C#, com foco no gerenciamento completo de catálogo de produtos e suas respectivas categorias (e.g., lanches, bebidas, sobremesas). O projeto utiliza Entity Framework Core com…",
+    "url": "https://github.com/BernardoFM1/API_CATALOGO",
+    "languages": [
+      "C#"
+    ],
+    "topics": [],
+    "pushedAt": "2026-11-07T01:37:27Z"
+  },
+  {
     "slug": "AtendenteDeLoja",
     "title": "Atendente de Loja",
     "summary": "Assistente virtual inteligente para atendimento automatizado em lojas e comércios via WhatsApp. O sistema utiliza uma arquitetura baseada em RAG (Retrieval-Augmented Generation), histórico de conversação em memória persistente, buffer com…",
