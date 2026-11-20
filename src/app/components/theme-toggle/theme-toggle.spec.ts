@@ -21,6 +21,7 @@ describe('ThemeToggle', () => {
     i18n = TestBed.inject(TranslationService);
     i18n.setLang('pt');
     themeService.setTheme('dark');
+    themeService.setHighContrast(false);
     fixture.detectChanges();
   });
 
@@ -56,6 +57,22 @@ describe('ThemeToggle', () => {
     fixture.detectChanges();
 
     expect(btn.getAttribute('aria-label')).toBe('Switch to dark mode');
+  });
+
+  it('should toggle high contrast button state, aria-pressed and aria-label on click', () => {
+    const contrastBtn = fixture.nativeElement.querySelector('.contrast-btn') as HTMLButtonElement;
+    expect(contrastBtn).toBeTruthy();
+    expect(contrastBtn.getAttribute('aria-pressed')).toBe('false');
+    expect(contrastBtn.getAttribute('aria-label')).toBe('Ativar alto contraste');
+    expect(contrastBtn.classList.contains('active')).toBe(false);
+
+    contrastBtn.click();
+    fixture.detectChanges();
+
+    expect(themeService.highContrast()).toBe(true);
+    expect(contrastBtn.getAttribute('aria-pressed')).toBe('true');
+    expect(contrastBtn.getAttribute('aria-label')).toBe('Desativar alto contraste');
+    expect(contrastBtn.classList.contains('active')).toBe(true);
   });
 });
 

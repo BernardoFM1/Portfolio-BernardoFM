@@ -33,6 +33,8 @@
   },
   "themeToggle": {
     "switchToLight": "Mudar para modo claro",
-    "switchToDark": "Mudar para modo escuro"
+    "switchToDark": "Mudar para modo escuro",
+    "enableHighContrast": "Ativar alto contraste",
+    "disableHighContrast": "Desativar alto contraste"
   }
 }

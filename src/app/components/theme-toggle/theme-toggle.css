@@ -1,8 +1,11 @@
 :host {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.theme-btn {
+.theme-btn,
+.contrast-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -19,14 +22,30 @@
   transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
 }
 
-.theme-btn:hover {
+.theme-btn:hover,
+.contrast-btn:hover {
   color: var(--accent);
-  border-color: var(--accent);
+  border-color: var(--accent-border);
+  background-color: var(--control-hover-bg);
+}
+
+.contrast-btn.active {
+  color: var(--accent);
+  border-color: var(--accent-border);
+  background-color: var(--control-hover-bg);
+  outline: 2px solid var(--accent-border);
+  outline-offset: -2px;
 }
 
 .theme-icon {
   display: block;
   flex-shrink: 0;
   pointer-events: none;
+}
+
+@media (max-width: 820px) {
+  :host {
+    gap: 8px;
+  }
 }
 

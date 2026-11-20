@@ -22,6 +22,14 @@
         var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
         document.documentElement.setAttribute('data-theme', theme);
         document.documentElement.style.colorScheme = theme;
+
+        var savedContrast = localStorage.getItem('portfolio_high_contrast');
+        var highContrast = savedContrast !== null
+          ? savedContrast === 'true'
+          : Boolean(window.matchMedia && window.matchMedia('(prefers-contrast: more)').matches);
+        if (highContrast) {
+          document.documentElement.setAttribute('data-contrast', 'high');
+        }
       } catch (e) { }
     })();
   </script>

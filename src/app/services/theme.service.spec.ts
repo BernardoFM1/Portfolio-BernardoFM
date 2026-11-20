@@ -49,5 +49,20 @@ describe('ThemeService', () => {
     expect(service.currentTheme()).toBe('dark');
     expect(localStorage.getItem(service.storageKey)).toBe('dark');
   });
+
+  it('should toggle high contrast and update data-contrast attribute and localStorage', () => {
+    expect(service.highContrast()).toBe(false);
+    expect(doc.documentElement.getAttribute('data-contrast')).toBeNull();
+
+    service.toggleHighContrast();
+    expect(service.highContrast()).toBe(true);
+    expect(doc.documentElement.getAttribute('data-contrast')).toBe('high');
+    expect(localStorage.getItem(service.contrastStorageKey)).toBe('true');
+
+    service.toggleHighContrast();
+    expect(service.highContrast()).toBe(false);
+    expect(doc.documentElement.getAttribute('data-contrast')).toBeNull();
+    expect(localStorage.getItem(service.contrastStorageKey)).toBe('false');
+  });
 });
 

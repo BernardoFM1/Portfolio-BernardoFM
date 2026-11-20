@@ -54,3 +54,37 @@
   }
 </button>
 
+<button
+  type="button"
+  class="contrast-btn"
+  [class.active]="theme.highContrast()"
+  [attr.aria-pressed]="theme.highContrast()"
+  (click)="theme.toggleHighContrast()"
+  [attr.aria-label]="
+    theme.highContrast()
+      ? i18n.t().themeToggle.disableHighContrast
+      : i18n.t().themeToggle.enableHighContrast
+  "
+  [title]="
+    theme.highContrast()
+      ? i18n.t().themeToggle.disableHighContrast
+      : i18n.t().themeToggle.enableHighContrast
+  "
+>
+  <svg
+    class="theme-icon contrast-icon"
+    viewBox="0 0 24 24"
+    width="18"
+    height="18"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <circle cx="12" cy="12" r="9"></circle>
+    <path d="M12 3a9 9 0 0 0 0 18Z" fill="currentColor" stroke="none"></path>
+  </svg>
+</button>
+
