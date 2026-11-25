@@ -1,14 +1,19 @@
 [
   {
     "slug": "API_CATALOGO",
-    "title": "\uD83D\uDCE6 Catálogo de Produtos e Categorias - ASP.NET Core Web API",
-    "summary": "Uma API RESTful moderna e robusta desenvolvida em .NET 8 e C#, com foco no gerenciamento completo de catálogo de produtos e suas respectivas categorias (e.g., lanches, bebidas, sobremesas). O projeto utiliza Entity Framework Core com…",
+    "title": "Catálogo Master & Sincronização entre Aplicações",
+    "summary": "Sistema full-stack de cadastro, consulta e sincronização de produtos entre duas aplicações independentes, desenvolvido com ASP.NET Core 8 (C#), Entity Framework Core (SQLite por padrão + suporte configurável para SQL Server), Vue 3 +…",
     "url": "https://github.com/BernardoFM1/API_CATALOGO",
     "languages": [
-      "C#"
+      "C#",
+      "Vue",
+      "TypeScript",
+      "CSS",
+      "PowerShell",
+      "HTML"
     ],
     "topics": [],
-    "pushedAt": "2026-11-12T01:10:05Z"
+    "pushedAt": "2026-11-25T16:00:53Z"
   },
   {
     "slug": "AtendenteDeLoja",
